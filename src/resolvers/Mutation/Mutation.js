@@ -4,9 +4,8 @@ const Expence = require("../../model/Expence");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-
 const Mutation = {
-  async registerUser(parent, args,ctx, info) {
+  async registerUser(parent, args, ctx, info) {
     const getUser = await User.find({ email: args.data.email });
 
     if (getUser.length) {
@@ -53,11 +52,11 @@ const Mutation = {
     // console.log(ctx.getUserId());
     // const Id = Context.getUserId();
     // console.log(ctx.getUserId());
-// console.log(context.getUserId());
+    // console.log(context.getUserId());
 
-console.log(ctx);
-// const {userId}= ctx.getUserId();
-// console.log("userId",userId);
+    // console.log(ctx.getUserId());
+    // const {userId}= ctx.getUserId();
+    // console.log("userId",userId);
 
     const user = await User.find({ username: username });
     // If any User not Found then throw error
@@ -66,7 +65,7 @@ console.log(ctx);
     } else if (user[0].password !== password) {
       throw new Error("Password is Wrong");
     }
-    getToken = (user) => {
+    getToken = () => {
       return jwt.sign({ user: user }, "123654", {
         expiresIn: 3600,
       }); // valid -> 1 hour
@@ -74,8 +73,12 @@ console.log(ctx);
     return { token: getToken() };
   },
 
-  async createExpence(parent, args, { db, Context }, info) {
+  async createExpence(parent, args, ctx, info) {
     // return User.findById("5f0591b1d5b6782a74e99720") // userId
+
+    const {userId} = ctx.getUserId();
+
+    console.log(userId);
 
     const user = await User.findById("5f06b1a977762116a059e7cd");
 
