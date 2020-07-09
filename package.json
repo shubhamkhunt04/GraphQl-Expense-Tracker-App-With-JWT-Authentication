@@ -1,0 +1,22 @@
+{
+  "name": "expence-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shubham Khunt",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "graphql": "^15.3.0",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
