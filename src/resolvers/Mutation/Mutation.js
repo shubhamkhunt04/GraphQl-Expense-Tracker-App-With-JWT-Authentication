@@ -1,12 +1,11 @@
 const User = require("../../model/User");
 const Expence = require("../../model/Expence");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
 
 const Mutation = {
   async registerUser(parent, args, ctx, info) {
     const getUser = await User.find({ email: args.data.email });
-
+    //If user not found then show error
     if (getUser.length) {
       throw new Error("User Already Exists !! Please Enter another Email !!");
     }
@@ -14,6 +13,8 @@ const Mutation = {
     const user = new User({
       ...args.data,
     });
+
+    // saving user details into DB
     await user.save();
     return user;
   },
@@ -26,7 +27,7 @@ const Mutation = {
     if (user.length === 0) {
       throw new Error("User Not Found");
     }
-    // If passwords are not match-> throw error
+    // If passwords are not match then throw error
     else if (user[0].password !== password) {
       throw new Error("Password is Wrong");
     }
@@ -42,18 +43,16 @@ const Mutation = {
   },
 
   async createExpence(parent, args, ctx, info) {
-
+    // checking auth. header is valid or not !
     const { userId } = ctx.getUserId();
-
     const user = await User.findById(userId);
-
-    // console.log(user);
 
     const expence = new Expence({
       ...args.data,
       author: user._id,
     });
 
+    // saving new expece into DB
     await expence.save();
     return expence;
   },

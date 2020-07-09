@@ -5,11 +5,12 @@ const context = ({ request, response }) => {
     getUserId: () => {
       const authorization = request.headers.authorization;
       if (authorization) {
-        // TODO: jwt
+        // Getting Token from header
         const token = authorization.split(" ")[1];
 
         if (token && token !== "") {
-         user = jwt.verify(token, "123654");
+          // verify: token is valid or not
+          user = jwt.verify(token, "123654");
         }
       } else {
         throw new Error("No authorization header found!!");

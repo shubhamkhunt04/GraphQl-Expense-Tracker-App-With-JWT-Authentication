@@ -1,11 +1,10 @@
 const User = require("../../model/User");
 const Expence = require("../../model/Expence");
-// const { expence } = require("./User");
 
 const Query = {
   async userDetail(parent, args, ctx, info) {
     const { userId } = ctx.getUserId();
-
+    // Finding perticular user details
     const user = await User.findById(userId);
     return user;
   },
@@ -13,7 +12,6 @@ const Query = {
   async expences(parent, args, ctx, info) {
     // checking auth. header is valid or not !
     const { userId } = ctx.getUserId();
-    // const user = await User.findById(userId);
 
     // Find perticular user expences
     const expences = await Expence.find({ author: userId });
