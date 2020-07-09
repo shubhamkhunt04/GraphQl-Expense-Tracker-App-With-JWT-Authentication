@@ -3,81 +3,71 @@ const Expence = require("../../model/Expence");
 // const { expence } = require("./User");
 
 const Query = {
-  users(parent, args, { db }, info) {
-    if (!args.query) {
-      return db.users;
-    }
-    // return db.users.filter((user) =>
-    //   user.name.toLowerCase().includes(args.query.toLowerCase())
-    // );
+  async userDetail(parent, args, ctx, info) {
+    const { userId } = ctx.getUserId();
+
+    const user = await User.findById(userId);
+    return user;
   },
-  async currentMonthMoneyIn(parent, args, { db }, info) {
-    const user = await User.findById("5f06b1a977762116a059e7cd");
 
-    // console.log(user);
+  async expences(parent, args, ctx, info) {
+    // checking auth. header is valid or not !
+    const { userId } = ctx.getUserId();
+    // const user = await User.findById(userId);
 
+    // Find perticular user expences
+    const expences = await Expence.find({ author: userId });
+    return expences;
+  },
+
+  async currentMonthMoneyIn(parent, args, ctx, info) {
+    let [day, month, year] = args.date.split("-");
+
+    // check auth. header
+    const { userId } = ctx.getUserId();
+    const user = await User.findById(userId);
+
+    // store all matched expences into expences
     const expences = await Expence.find({
       $and: [{ author: user._id }, { moneyStatus: { $eq: "MONEYIN" } }],
     });
 
-    let sum = 0;
+    // initialy zero
+    let expenceMoneyIn = 0;
     expences.forEach((expence) => {
-      sum = sum + expence.transactionAmount;
+      // check month is equl or not
+      if (expence.date.split("-")[1] === month) {
+        expenceMoneyIn = expenceMoneyIn + expence.transactionAmount;
+      }
     });
-    return sum;
+    // total receive money
+    return expenceMoneyIn;
   },
-  async currentMonthMoneyOut(parent, args, { db }, info) {
-    const user = await User.findById("5f06b1a977762116a059e7cd");
 
-    // console.log(user);
+  async currentMonthMoneyOut(parent, args, ctx, info) {
+    let [day, month, year] = args.date.split("-");
 
+    // check auth. header
+    const { userId } = ctx.getUserId();
+    const user = await User.findById(userId);
+
+    // store all matched expences into expences
     const expences = await Expence.find({
       $and: [{ author: user._id }, { moneyStatus: { $eq: "MONEYOUT" } }],
     });
 
-    let sum = 0;
+    // initialy zero
+    let expenceMoneyOut = 0;
     expences.forEach((expence) => {
-      sum = sum + expence.transactionAmount;
+      // check month is equl or not
+      if (expence.date.split("-")[1] === month) {
+        expenceMoneyOut = expenceMoneyOut + expence.transactionAmount;
+      }
     });
-    return sum;
+
+    // total paid money
+    return expenceMoneyOut;
   },
 };
 
 module.exports = Query;
-
-// const Query = {
-//   me() {
-//     return {
-//       id: 123,
-//       name: "Shubham",
-//       email: "shubhamkhunt08@gmail.com",
-//       age: 21,
-//     };
-//   },
-
-//   users(parent, args, { db }, info) {
-//     if (!args.query) {
-//       return db.users;
-//     }
-//     return db.users.filter((user) =>
-//       user.name.toLowerCase().includes(args.query.toLowerCase())
-//     );
-//   },
-
-//   posts(parent, args, { db }, info) {
-//     if (!args.query) {
-//       return db.posts;
-//     }
-//     return db.posts.filter(
-//       (post) =>
-//         post.title.toLowerCase().includes(args.query.toLowerCase()) ||
-//         post.body.toLowerCase().includes(args.query.toLowerCase())
-//     );
-//   },
-
-//   comments(parent, args, { db }, info) {
-//     return db.comments;
-//   },
-// };
-
-// export { Query as default };

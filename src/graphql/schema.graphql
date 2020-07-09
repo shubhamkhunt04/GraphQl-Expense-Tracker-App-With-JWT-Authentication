@@ -1,8 +1,8 @@
 type Query {
-  users: [User!]!
-  # expences(userId: ID!): [Expence!]!
-  currentMonthMoneyIn(id: ID!): Float!
-  currentMonthMoneyOut(id: ID!): Float!
+  userDetail: User!
+  expences: [Expence!]!
+  currentMonthMoneyIn(date:String!): Float!
+  currentMonthMoneyOut(date:String!): Float!
 }
 
 type Mutation {

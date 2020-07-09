@@ -11,7 +11,6 @@ const context = ({ request, response }) => {
         if (token && token !== "") {
          user = jwt.verify(token, "123654");
         }
-        console.log("user", user);
       } else {
         throw new Error("No authorization header found!!");
       }

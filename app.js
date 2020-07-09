@@ -5,7 +5,7 @@ const User = require("./src/resolvers/Query/User");
 const Expence = require("./src/resolvers/Query/Expence");
 const Mutation = require("./src/resolvers/Mutation/Mutation");
 const db = require("./db");
-const {context} =require("./src/context/context");
+const { context } = require("./src/context/context");
 
 const server = new GraphQLServer({
   typeDefs: "./src/graphql/schema.graphql",
@@ -14,7 +14,8 @@ const server = new GraphQLServer({
     Mutation,
     User,
     Expence,
-  },context
+  },
+  context,
 });
 
 mongoose
