@@ -78,26 +78,24 @@ const Mutation = {
 
     const {userId} = ctx.getUserId();
 
-    console.log(userId);
+    // const user = await User.findById("5f06b1a977762116a059e7cd");
 
-    const user = await User.findById("5f06b1a977762116a059e7cd");
+    // // console.log(user);
 
-    console.log(user);
+    // const expence = new Expence({
+    //   ...args.data,
+    //   author: user._id,
+    // });
 
-    const expence = new Expence({
-      ...args.data,
-      author: user._id,
-    });
-
-    await expence.save();
-    return expence;
-    // return {
-    //   id: "1",
-    //   title: "new kdklmmee",
-    //   moneyStatus: "MONEYIN",
-    //   transactionAmount: 100,
-    //   date: "10",
-    // };
+    // await expence.save();
+    // return expence;
+    return {
+      id: "1",
+      title: "new kdklmmee",
+      moneyStatus: "MONEYIN",
+      transactionAmount: 100,
+      date: "10",
+    };
   },
 
   async deleteExpence(parent, args, { db }, info) {
