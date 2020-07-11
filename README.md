@@ -1,6 +1,6 @@
 # GraphQl Expence Tracker App With JWT Authentication
 
-This is CRUD App app using Node.js, Express, Mongoose and express-sessions.
+This is Expence Tracker App using GraphQL, GraphQL-yoga, Mongoose.
 
 ## Getting Started
 
