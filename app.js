@@ -8,7 +8,7 @@ const Query = require("./src/resolvers/Query/Query");
 const Mutation = require("./src/resolvers/Mutation/Mutation");
 const { context } = require("./src/context/context");
 
-// Creating Server
+// Creating GraphQLServer Server
 const server = new GraphQLServer({
   typeDefs: "./src/graphql/schema.graphql",
   resolvers: {

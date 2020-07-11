@@ -1,11 +1,12 @@
 document.getElementById("addExpence").addEventListener("click", async (e) => {
-  console.log("Add btn clcikes");
   location = "../html/expenceForm.html";
 });
 
 // display table dynamically
 
 const displayTable = async (e) => {
+  // call graphQl api
+
   const url = "http://localhost:4000";
   const query = `
     query {
@@ -30,9 +31,6 @@ const displayTable = async (e) => {
 
   const response = await fetch(url, params);
   const data = await response.json();
-  console.log(data);
-
-  console.log("Homepage");
 
   var index = 1;
   let html = "";
@@ -55,8 +53,6 @@ const displayTable = async (e) => {
   html3 = ` </tbody>
     </table>
     </div>`;
-
-  // console.log(data.data.expence[0])
 
   data.data.expences.forEach((element) => {
     let moneyReceiveOrPaid = " ";
@@ -89,29 +85,16 @@ const displayTable = async (e) => {
   });
 
   html = html1 + html2 + html3;
+  // setting html code dynamically
   document.getElementById("showtable").innerHTML = html;
-
-  //         for (let i = 1; i < index; i++) {
-  //             document.getElementById(`startbtn${i}`).addEventListener('click', (e) => {
-  //                 console.log(e.target.value);
-  //                 sessionStorage.setItem('targetquiz', e.target.value);
-  //                 location = "../quiz.html"
-  //             })
-  //         }
-  // }
-  // }
-  // catch (err) {
-  //     throw err;
-  //   }
-  // }
 };
+// funcation call
 displayTable();
 
 // Edit Expencec Function
 
 editExpence = async (id) => {
-  console.log("Hello shubham", id);
-
+  // call graphQl api
   const url = "http://localhost:4000";
   const query = `
   query{
@@ -136,7 +119,6 @@ editExpence = async (id) => {
 
   const response = await fetch(url, params);
   const data = await response.json();
-  console.log(data.data.findExpence.title);
 
   //   document.getElementById("edit").addEventListener("click", (e) => {
   //     let userdata = localStorage.getItem("userdata");
@@ -170,11 +152,9 @@ editExpence = async (id) => {
         `;
   document.getElementById("editmodal").innerHTML = html;
 
-  // // Update API call when user click on update button
+  // Update API call when user click on update button
 
   document.getElementById("updateBtn").addEventListener("click", async (e) => {
-    console.log("Update btn cliked");
-
     const updatedTitle = document.getElementById("updatedTitle").value;
     const updatedExpenceType = document.getElementById("updatedExpenceType")
       .value;
@@ -183,11 +163,7 @@ editExpence = async (id) => {
     ).value;
     const updatedDate = document.getElementById("updatedDate").value;
 
-    console.log(updatedTitle);
-    console.log(updatedExpenceType);
-    console.log(updatedTransactionAmount);
-    console.log(updatedDate);
-
+    // call graphQl api
     const url = "http://localhost:4000";
     const query = `
     mutation {
@@ -220,7 +196,6 @@ editExpence = async (id) => {
 
     const response = await fetch(url, params);
     const data = await response.json();
-    console.log(data);
 
     document.getElementById("editmodal").innerHTML = "";
 
@@ -231,8 +206,7 @@ editExpence = async (id) => {
 // Delete Expence Function
 
 deleteExpence = async (id) => {
-  console.log("delete clicked", id);
-
+  // call graphQl api
   const url = "http://localhost:4000";
   const query = `
     mutation{
@@ -258,21 +232,17 @@ deleteExpence = async (id) => {
   const data = await response.json();
 
   location = "../html/homePage.html";
-  console.log(data);
 };
-
-
 
 // Total Money Receive
 
 const date = new Date();
 const currentDate = `${date.getDate()}-${
-  date.getMonth()+1
+  date.getMonth() + 1
 }-${date.getFullYear()}`;
 
-console.log("currentDate", currentDate);
-
 totalMoneyReceive = async () => {
+  // call graphQl api
   const url = "http://localhost:4000";
   const query = `
     query{
@@ -291,9 +261,6 @@ totalMoneyReceive = async () => {
 
   const response = await fetch(url, params);
   const data = await response.json();
-
-  // location = "../html/homePage.html";
-  console.log("In", data);
 
   document.getElementById("totalMoneyReceive").innerHTML =
     data.data.currentMonthMoneyIn;
@@ -321,9 +288,6 @@ totalMoneyPaid = async () => {
 
   const response = await fetch(url, params);
   const data = await response.json();
-
-  // location = "../html/homePage.html";
-  console.log("Out", data);
 
   document.getElementById("totalMoneyPaid").innerHTML =
     data.data.currentMonthMoneyOut;

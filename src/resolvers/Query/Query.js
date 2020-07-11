@@ -21,7 +21,6 @@ const Query = {
   async currentMonthMoneyIn(parent, args, ctx, info) {
     let [day, month, year] = args.date.split("-");
 
-    console.log("argument date",args.date);
 
     // check auth. header
     const { userId } = ctx.getUserId();

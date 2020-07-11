@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
+    <!-- googlefont cdn -->
+    <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css">
-  <title>Expence Tracker</title>
+    <!-- main style.css -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Expence Tracker</title>
 </head>
 
 <body>
+
   <!-- navbar start -->
+
   <nav class="navcolor p-2">
     <h3 class="text-center text-white">Expence Tracker</h3>
   </nav>
 
   <!-- navbar end -->
 
+  <!-- login button start -->
+
   <div class="container">
     <div class="row">
       <div class="col text-center">
         <button type="button" class="btn-lg btn-outline-dark btnposition" data-toggle="modal"
-          data-target="#signup">SignUp</button>
+        data-target="#signup">SignUp</button>
         <button type="button" class="btn-lg btn-outline-primary btnposition" data-toggle="modal"
-          data-target="#login">Login</button>
+        data-target="#login">Login</button>
       </div>
     </div>
   </div>
+  
+  <!-- login button end -->
 
 
-  <!-- signup modal start -->
-
-
-
-  <!-- signup modal end -->
 
   <!-- signup landing page start -->
   <!-- Modal -->
+
   <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -83,6 +88,7 @@
 
 
   <!-- login landing page start -->
+
   <!-- Modal -->
 
   <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -115,12 +121,13 @@
       </div>
     </div>
   </div>
+
   <!-- login landing page end -->
 
 
 
 
-
+  <!-- optinal js cdn -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

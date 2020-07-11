@@ -3,19 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
 
+    <!-- googlefont cdn -->
+    <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet">
+
+    <!-- main style.css -->
     <link rel="stylesheet" href="./style.css">
     <title>Expence Tracker</title>
 </head>
 
 <body>
+
     <!-- navbar start -->
+
     <nav class="navcolor p-2">
         <h3 class="text-center text-white">Expence Tracker</h3>
     </nav>
@@ -24,6 +29,7 @@
 
 
     <!-- form start -->
+
     <div class="container mt-5 bg-dark w-50 rounded-lg">
         <form class="p-4 text-white">
             <div class="form-group">
@@ -33,8 +39,8 @@
             <div class="form-group">
                 <label for="expenceType">Expence Type</label>
                 <select class="form-control" id="expenceType">
-                  <option value="MONEYIN">Money Receive (Money In)</option>
-                  <option value="MONEYOUT">Money Paid (Money Out)</option>
+                    <option value="MONEYIN">Money Receive (Money In)</option>
+                    <option value="MONEYOUT">Money Paid (Money Out)</option>
                 </select>
             </div>
             <div class="form-group">
@@ -46,14 +52,13 @@
                 <input type="date" class="form-control" id="date">
             </div>
             <button type="button" id="addExpenceBtn" class="btn w-25 btn-primary zoom">Add</button>
-            
         </form>
     </div>
+
     <!-- form end -->
-    
-    
 
 
+    <!-- optional js cdn -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -64,8 +69,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-
-        <script src="../js/expenceForm.js"></script>
+    <script src="../js/expenceForm.js"></script>
 </body>
 
 </html>

@@ -36,7 +36,7 @@ const Mutation = {
     getToken = () => {
       return jwt.sign({ user: user }, "123654", {
         expiresIn: 3600000,
-      }); 
+      });
     };
     // sending token to client side
     return { token: getToken() };

@@ -1,9 +1,9 @@
 type Query {
   userDetail: User!
   expences: [Expence!]!
-  currentMonthMoneyIn(date:String!): Float!
-  currentMonthMoneyOut(date:String!): Float!
-  findExpence(id:ID!):Expence!
+  currentMonthMoneyIn(date: String!): Float!
+  currentMonthMoneyOut(date: String!): Float!
+  findExpence(id: ID!): Expence!
 }
 
 type Mutation {

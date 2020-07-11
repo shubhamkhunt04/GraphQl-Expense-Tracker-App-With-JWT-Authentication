@@ -1,10 +1,13 @@
+/*=================== reset body style ================== */
+
 body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   background-color: linen;
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
 }
+
 /*=================== button postion ================== */
 
 .btnposition {
@@ -23,6 +26,11 @@ body {
 .zoom:hover {
   transform: scale(1.2);
   /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/*================ loginpage style ============== */
+.navpositioninloginpage {
+  margin-top: 100px;
 }
 
 /*================ homepage style ============== */
