@@ -276,7 +276,7 @@ totalMoneyReceive = async () => {
   const url = "http://localhost:4000";
   const query = `
     query{
-      currentMonthMoneyIn(date:\"10-07-2020\")  
+      currentMonthMoneyIn(date:\"${currentDate}\")  
     }
     `;
 
@@ -306,7 +306,7 @@ totalMoneyPaid = async () => {
   const url = "http://localhost:4000";
   const query = `
     query{
-      currentMonthMoneyOut(date:\"10-07-2020\")  
+      currentMonthMoneyOut(date:\"${currentDate}\")  
     }
     `;
 

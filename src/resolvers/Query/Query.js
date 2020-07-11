@@ -36,7 +36,7 @@ const Query = {
     let expenceMoneyIn = 0;
     expences.forEach((expence) => {
       // check month is equl or not
-      if (expence.date.split("-")[1] === month) {
+      if (parseInt(expence.date.split("-")[1]) === parseInt(month)) {
         expenceMoneyIn = expenceMoneyIn + expence.transactionAmount;
       }
     });
@@ -60,7 +60,7 @@ const Query = {
     let expenceMoneyOut = 0;
     expences.forEach((expence) => {
       // check month is equl or not
-      if (expence.date.split("-")[1] === month) {
+      if (parseInt(expence.date.split("-")[1]) === parseInt(month)) {
         expenceMoneyOut = expenceMoneyOut + expence.transactionAmount;
       }
     });
