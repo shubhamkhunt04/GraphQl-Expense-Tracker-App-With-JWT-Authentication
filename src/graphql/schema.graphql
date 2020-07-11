@@ -3,6 +3,7 @@ type Query {
   expences: [Expence!]!
   currentMonthMoneyIn(date:String!): Float!
   currentMonthMoneyOut(date:String!): Float!
+  findExpence(id:ID!):Expence!
 }
 
 type Mutation {

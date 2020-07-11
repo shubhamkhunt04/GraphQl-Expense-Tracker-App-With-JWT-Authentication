@@ -1,11 +1,10 @@
 // Inbuild Module
 const { GraphQLServer } = require("graphql-yoga");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // User define Module
 const Query = require("./src/resolvers/Query/Query");
-const User = require("./src/resolvers/Query/User");
-const Expence = require("./src/resolvers/Query/Expence");
 const Mutation = require("./src/resolvers/Mutation/Mutation");
 const { context } = require("./src/context/context");
 
@@ -15,8 +14,6 @@ const server = new GraphQLServer({
   resolvers: {
     Query,
     Mutation,
-    User,
-    Expence,
   },
   context,
 });

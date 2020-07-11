@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Expence Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body id="dashbackground">
+    <!-- navbar start -->
+    <nav class="navcolor p-2">
+        <h3 class="text-center text-white">Expence Tracker<a href="./index.html"
+                class="float-right btn btn-outline-warning mr-5">Logout</a></h3>
+    </nav>
+
+    <!-- navbar end -->
+
+    <!-- card start -->
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4 w-auto my-3 zoom">
+                <div class="card shadow cardcolor" style="width: 20rem;">
+                    <div class="inner">
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Total Money Receive</h4>
+                        <p class="card-title font-italic" id="totalMoneyReceive">0</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4 w-auto my-3 zoom">
+                <div class="card shadow cardcolor" style="width: 20rem;">
+                    <div class="inner">
+                    </div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Total Money Paid</h4>
+                        <p class="card-title font-italic" id="totalMoneyPaid">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- card end -->
+
+
+    <!-- add expence button start -->
+
+    <div class="container">
+        <button id="addExpence" type="button" class="btn btn-danger btn-block btn-lg my-4 zoom w-75">
+            Add Expence
+        </button>
+    </div>
+
+    <!-- add expence button end -->
+
+
+    <!-- show modal start -->
+
+    <div id="editmodal"></div>
+
+    <!-- show modal end -->
+
+    <!-- table start -->
+
+    <div id="showtable"></div>
+
+    <!-- table end -->
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="../js/homePage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: linen;
+}
+/*=================== button postion ================== */
+
+.btnposition {
+  margin: 30px;
+  margin-top: 40vh;
+  width: 15vh;
+}
+
+/*============== component zoom effect============ */
+.zoom {
+  transition: transform 0.2s;
+  /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.2);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/*================ homepage style ============== */
+td,
+th {
+  padding: 1em;
+  text-align: center;
+}
+
+#outline {
+  border-radius: 10px;
+}
+
+#dashbackground {
+  background-image: linear-gradient(
+    to right,
+    rgb(49, 190, 49),
+    rgb(230, 230, 101)
+  );
+}
+
+/*================ Navbar Position ============== */
+.navposition {
+  margin-top: 70px;
+}
+
+/*=================== card color================== */
+.cardcolor {
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+.navcolor {
+  background-color: #634194;
+}
+
+.formColor {
+  background-color: #75e900;
+}
