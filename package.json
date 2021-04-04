@@ -1,8 +1,11 @@
 {
   "name": "expence-mongo",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
