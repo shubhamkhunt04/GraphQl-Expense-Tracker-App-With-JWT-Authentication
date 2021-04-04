@@ -1,3 +1,4 @@
+require("dotenv").config(); // Load all environment variable
 // Inbuild Module
 const { GraphQLServer } = require("graphql-yoga");
 const mongoose = require("mongoose");
@@ -18,18 +19,24 @@ const server = new GraphQLServer({
   context,
 });
 
+const options = {
+  port: 3002,
+  endpoint: '/graphql',
+  subscriptions: '/subscriptions',
+  playground: '/playground',
+}
+
 // Database Connection
 mongoose
-  .connect("mongodb://localhost:27017/Expence", {
+  .connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    createIndexes: true,
   })
   .then(() => {
     console.log("Mongodb connected successfully!!");
     // if db connection is successfully establish then start server.
-    server.start(() => {
-      console.log("Hey Shubham ,Server is Runnig at  http://localhost:4000");
+    server.start(options, ({ port }) => {
+      console.log(`Hey Shubham ,Server is Runnig at  http://localhost:${port}`);
     });
   })
   .catch((err) => console.log(err));
